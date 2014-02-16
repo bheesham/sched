@@ -1,0 +1,14 @@
+{
+  "name": "web-init",
+  "version": "0.0.0",
+  "authors": [
+    "Bheesham Persaud <bheesham.persaud@live.ca>"
+  ],
+  "license": "BSD-2-Clause",
+  "private": true,
+  "dependencies": {
+    "lodash": "~2.4.1",
+    "requirejs": "~2.1.10",
+    "normalize-css": "~3.0.0"
+  }
+}
