@@ -8,6 +8,8 @@ define 'models/appointment', ['jquery', 'underscore', 'backbone', 'moment'], () 
       date: undefined
       time: undefined
     saveAppointment: (date, hour) ->
+      alert date
+      alert hour
       that = this
       $.ajax 'api/save-appointment',
         dataType: 'json'
