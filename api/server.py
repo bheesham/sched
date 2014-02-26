@@ -1,8 +1,8 @@
-import KSdb
 import json, random
-import bottle
+import pg8000
+from bottle import route, static_file, run
 
-@app.route('/api/<path:path>', method='POST')
+@route('/api/<path:path>', method='POST')
 def api(path='invalid'):
   if path == 'get-avail-hours':
     hours = []
@@ -14,13 +14,13 @@ def api(path='invalid'):
   else:
     return json.dumps({'error': 'invalid request'})
 
-@app.route('/<path:path>')
+@route('/<path:path>')
 def dist(path):
   return static_file(path, root='dist')
 
-@app.route('/')
-@app.route('/<filename>')
+@route('/')
+@route('/<filename>')
 def index(filename='index.html'):
   return static_file(filename, root='dist')
 
-app.run(host='localhost', port=80)
+run(host='localhost', port=8080)
