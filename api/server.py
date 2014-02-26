@@ -7,7 +7,7 @@ cur = conn.cursor()
 
 @route('/api/<path:path>', method='POST')
 def api(path='invalid'):
-  if path == 'get-avail-hours':
+  if path == 'get-date-hours':
     hours = [8, 9, 10, 11, 12, 13, 14, 15, 16]
     date = request.forms.get('date')
     cur.execute('SELECT hour FROM appointments WHERE date = %s;', date)
