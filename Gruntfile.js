@@ -41,15 +41,6 @@ module.exports = function(grunt) {
         }
       }
     },
-    connect: {
-      dist: {
-        options: {
-          port: 8080,
-          base: 'dist/',
-          keepalive: true
-        }
-      }
-    },
     copy: {
       html: {
         files: [

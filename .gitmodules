@@ -1,0 +1,6 @@
+[submodule "api/landerdb"]
+	path = api/landerdb
+	url = https://github.com/Max00355/LanderDB.git
+[submodule "api/lib/landerdb"]
+	path = api/lib/landerdb
+	url = https://github.com/Max00355/LanderDB.git
