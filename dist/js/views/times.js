@@ -26,7 +26,7 @@ define('views/times', ['jquery', 'underscore', 'backbone', 'moment', 'text!templ
       return _results;
     },
     getSelected: function() {
-      return this.$el.children('input[type=radio]:checked').val();
+      return this.$el.find('input[type=radio]:checked').val();
     }
   });
   return View;
