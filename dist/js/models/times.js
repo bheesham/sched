@@ -18,7 +18,7 @@ define('models/times', ['jquery', 'underscore', 'backbone', 'moment', 'text!temp
       if (date == null) {
         date = this.get('date');
       }
-      $.ajax('api/get-avail-hours', {
+      $.ajax('api/get-date-hours', {
         dataType: 'json',
         data: {
           date: date
