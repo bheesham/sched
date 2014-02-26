@@ -8,16 +8,16 @@ define('models/appointment', ['jquery', 'underscore', 'backbone', 'moment'], fun
       date: void 0,
       time: void 0
     },
-    saveAppointment: function(date, hour) {
+    saveAppointment: function(date, hour, name, email) {
       var that;
-      alert(date);
-      alert(hour);
       that = this;
       return $.ajax('api/save-appointment', {
         dataType: 'json',
         data: {
           date: date,
-          hour: hour
+          hour: hour,
+          name: name,
+          email: email
         },
         method: 'POST',
         success: function(data) {

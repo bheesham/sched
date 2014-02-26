@@ -52,5 +52,5 @@ require ['underscore', 'jquery.ui.datepicker', 'moment','views/times', 'models/t
   )
 
   $('#book').click(() ->
-    appointment.saveAppointment(timeModel.get('date'), timeView.getSelected())
+    appointment.saveAppointment(timeModel.get('date'), timeView.getSelected(), $('#name').val(), $('#email').val())
   )
