@@ -1,13 +1,18 @@
 import json, random
-import pg8000
-from bottle import route, static_file, run
+import pymysql
+from bottle import route, request, static_file, run
+
+conn = pymysql.connect(host='127.0.0.1', user='root', passwd='thisisatest', db='sched')
+cur = conn.cursor()
 
 @route('/api/<path:path>', method='POST')
 def api(path='invalid'):
   if path == 'get-avail-hours':
-    hours = []
-    for i in range(4):
-      hours.append(random.randint(8,16))
+    hours = [8, 9, 10, 11, 12, 13, 14, 15, 16]
+    date = request.forms.get('date')
+    cur.execute('SELECT hour FROM appointments WHERE date = %s;', date)
+    for row in cur:
+      hours.remove(row)
     return json.dumps({'hours': hours})
   elif path == 'save-appointment':
     return json.dumps({'message': 'not implemented'})
