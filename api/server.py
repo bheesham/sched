@@ -14,6 +14,14 @@ def api(path='invalid'):
     for row in cur:
       hours.remove(row)
     return json.dumps({'hours': hours})
+  if path == 'save-appointment':
+    date = request.forms.get('date')
+    hour = int(request.forms.get('hour'))
+    cur.execute('SELECT hour FROM appointments WHERE date = %s AND hour = %d', (date, hour))
+    if cur.rowcount == 0:
+      cur.execute('INSERT INTO appointments (date, hour) VALUES (%s, %d);', date, hour)
+      return json.dumps({'message': 'Appointment has been booked'})
+    return json.dumps({'message': 'There has been an error while trying to book that time, please select another.'})
   elif path == 'save-appointment':
     return json.dumps({'message': 'not implemented'})
   else:
