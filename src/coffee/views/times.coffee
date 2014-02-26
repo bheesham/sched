@@ -18,6 +18,6 @@ define 'views/times', ['jquery', 'underscore', 'backbone', 'moment', 'text!templ
           to_append.addClass('time-avail')
         this.$el.append(to_append)
     getSelected: () ->
-      return this.$el.children('input[type=radio]:checked').val()
+      return this.$el.find('input[type=radio]:checked').val()
   
   return View
