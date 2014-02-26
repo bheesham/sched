@@ -14,7 +14,7 @@ define 'models/times', ['jquery', 'underscore', 'backbone', 'moment', 'text!temp
       that = this
       if not date?
         date = this.get('date')
-      $.ajax 'api/get-avail-hours',
+      $.ajax 'api/get-date-hours',
         dataType: 'json'
         data:
           date: date
