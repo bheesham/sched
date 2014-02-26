@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ccsl scheduler</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="alpha twelve columns header">
+        <h1><abbr title="carleton computer security lab">ccsl</abbr> user study</h1>
+      </div>
+      <div class="row">
+        <div class="six columns alpha info">
+          <label for="name">
+            <span>name: </span><input type="text" id="name" placeholder="John Smith">
+          </label><br>
+          <label for="email">
+            <span>email address: </span><input type="text" id="email" placeholder="jsmith@domain.tld">
+          </label>
+        </div>
+        <div class="five columns omega offset-by-one date-select">
+          select a date:
+          <div id="date"></div>
+        </div>
+      </div>
+      <div class="sixteen columns times-select">
+        select a time (green means available):<br>
+        <div id="times"></div>
+      </div>
+      <div class="sixteen columns">
+        <button id="book">book time</button>
+      </div>
+    </div>
+    <script type="text/javascript" src="bower_components/requirejs/require.js" data-main="js/main"></script>
+  </body>
+</html>
