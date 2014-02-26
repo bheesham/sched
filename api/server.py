@@ -23,4 +23,4 @@ def dist(path):
 def index(filename='index.html'):
   return static_file(filename, root='dist')
 
-run(host='localhost', port=8080)
+run(host='localhost', port=80)

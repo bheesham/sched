@@ -1,0 +1,27 @@
+info it worked if it ends with ok
+verbose cli [ 'node',
+verbose cli   '/usr/bin/npm',
+verbose cli   'config',
+verbose cli   'set',
+verbose cli   'registry',
+verbose cli   'http://registry.npmjs.org/' ]
+info using npm@1.1.4
+info using node@v0.6.12
+verbose config file /home/bheesham/.npmrc
+verbose config file /usr/etc/npmrc
+verbose config file /usr/share/npm/npmrc
+info config set registry http://registry.npmjs.org/
+ERR! Error: EACCES, permission denied '/home/bheesham/.npmrc'
+ERR! 
+ERR! Please try running this command again as root/Administrator.
+ERR! 
+ERR! System Linux 3.2.0-59-virtual
+ERR! command "node" "/usr/bin/npm" "config" "set" "registry" "http://registry.npmjs.org/"
+ERR! cwd /home/bheesham/sched
+ERR! node -v v0.6.12
+ERR! npm -v 1.1.4
+ERR! path /home/bheesham/.npmrc
+ERR! code EACCES
+ERR! message EACCES, permission denied '/home/bheesham/.npmrc'
+ERR! errno {}
+verbose exit [ 1, true ]
