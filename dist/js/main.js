@@ -55,7 +55,7 @@ require(['underscore', 'jquery.ui.datepicker', 'moment', 'views/times', 'models/
     return timeModel.update(moment(date, 'MM/DD/YYYY').format('DD-MM-YYYY'));
   });
   return $('#book').click(function() {
-    return appointment.saveAppointment(timeModel.get('date'), timeView.getSelected());
+    return appointment.saveAppointment(timeModel.get('date'), timeView.getSelected(), $('#name').val(), $('#email').val());
   });
 });
 
