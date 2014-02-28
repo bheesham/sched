@@ -2,17 +2,24 @@ import json, random
 import pymysql
 from bottle import route, request, static_file, run
 
-conn = pymysql.connect(host='127.0.0.1', user='root', passwd='thisisatest', db='sched')
-
 @route('/api/<path:path>', method='POST')
 def api(path='invalid'):
+  conn = pymysql.connect(host='127.0.0.1', user='root', passwd='thisisatest', db='sched')
   cur = conn.cursor()
   if path == 'get-date-hours':
-    hours = [8, 9, 10, 11, 12, 13, 14, 15, 16]
+    hours = []
     date = request.forms.get('date')
+    
+    # hours available
+    cur.execute('SELECT hour FROM available WHERE date = %s', (date))
+    for row in cur:
+      hours.append(row[0])
+
+    # hours not booked
     cur.execute('SELECT hour FROM appointments WHERE date = %s;', (date))
     for row in cur:
       hours.remove(row[0])
+    
     cur.close()
     return json.dumps({'hours': hours})
   if path == 'save-appointment':
@@ -40,6 +47,7 @@ def api(path='invalid'):
     cur.close()
     return ret
   else:
+    cur.close()
     return json.dumps({'error': 'invalid request'})
 
 @route('/<path:path>')
