@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import json, random
 import pymysql
 from bottle import route, request, static_file, run
