@@ -18,7 +18,8 @@ def api(path='invalid'):
     # hours not booked
     cur.execute('SELECT hour FROM appointments WHERE date = %s;', (date))
     for row in cur:
-      hours.remove(row[0])
+      if row[0] in hours:
+        hours.remove(row[0])
     
     cur.close()
     conn.close()
