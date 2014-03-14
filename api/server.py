@@ -23,7 +23,6 @@ def api(path='invalid'):
         hours.remove(row[0])
     
     cur.close()
-    conn.close()
     return json.dumps({'hours': hours})
   if path == 'save-appointment':
     date = request.forms.get('date')
@@ -48,11 +47,9 @@ def api(path='invalid'):
     else:
       ret = json.dumps({'message': 'There has been an error while trying to book that time, please select another.'})
     cur.close()
-    conn.close()
     return ret
   else:
     cur.close()
-    conn.close()
     return json.dumps({'error': 'invalid request'})
 
 @route('/<path:path>')
