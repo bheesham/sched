@@ -2,9 +2,10 @@ import json, random
 import pymysql
 from bottle import route, request, static_file, run
 
+conn = pymysql.connect(host='127.0.0.1', user='root', passwd='thisisatest', db='sched')
+
 @route('/api/<path:path>', method='POST')
 def api(path='invalid'):
-  conn = pymysql.connect(host='127.0.0.1', user='root', passwd='thisisatest', db='sched')
   cur = conn.cursor()
   if path == 'get-date-hours':
     hours = []
